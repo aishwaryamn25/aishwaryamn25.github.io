@@ -1,0 +1,240 @@
+<!-- Code by Aishwarya Marghatta Nandeesh -->
+
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Assessment by Aishwarya Marghatta Nandeesh</title>
+</head>
+
+<body>
+
+
+    <div class="container my-3">
+        <h3>Employees Data</h3>
+        <hr>
+    <table id="table" class="display" style="width:100%">
+        <thead>
+            <tr>
+                <th>Internal ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>DoB</th>
+                <th>Supervisor</th>
+                <th>2012 Revenue</th>
+                <th>2013 Revenue</th>
+            </tr>
+        </thead>
+        <tfoot>
+
+        </tfoot>
+    </table>
+</div>
+<div class="container my-3">
+    <h3>Revenue 2013 Data</h3>
+    <hr>
+<table id="tableRevenue" class="display" style="width:100%">
+    <thead>
+        <tr>
+            <th>Type</th>
+            <th>Customer</th>
+            <th>Employee</th>
+            <th>Amount</th>
+        </tr>
+    </thead>
+    <tfoot>
+
+    </tfoot>
+</table>
+</div>
+<div class="container my-3">
+    <h3>Commission Rules</h3>
+    <hr>
+<table id="tblCommissionRules" class="display" style="width:100%">
+    <thead>
+        <tr>
+            <th>Employee</th>
+            <th>Percentage</th>
+            <th>Bonus</th>
+        </tr>
+    </thead>
+    <tfoot>
+
+    </tfoot>
+</table>
+</div>
+
+<div class="container my-5">
+    <h6>1. Assume that today is 1/1/2014, update each employee's record to indicate the number of days until their birthday. Store the resulting value in a new key on the employee object.</h6>
+    <button class="btn btn-primary" onclick="document.getElementById('dateRemain').style.display = 'block'; dateToDob()">Update Employee Table and Store</button>
+
+    <p id="dateRemain">
+        <table id="tableNew" class="display" style="width:100%">
+            <thead>
+                <tr>
+                    <th>Internal ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>DoB</th>
+                    <th>Supervisor</th>
+                    <th>2012 Revenue</th>
+                    <th>2013 Revenue</th>
+                    <th>Your Next Birthday is after</th>
+
+                </tr>
+            </thead>
+            <tfoot>
+
+            </tfoot>
+        </table>
+    </p>
+</div>
+
+<div class="container my-5">
+    <h6>2. Update each Employee object to contain a reference to their "best" customer (as defined by who purchased the most in the 2013 year). Store the resulting value in a new key on the employee object.</h6>
+<button class="btn btn-primary"  onclick="document.getElementById('bestCustomer').style.display = 'block'; bestCustomer()">Best Customer</button>
+
+<p id="bestCustomer">
+    <table id="tableBestCustomer" class="display" style="width:100%">
+        <thead>
+            <tr>
+                <th>Internal ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Supervisor</th>
+                <th>Best Customer</th>
+            </tr>
+        </thead>
+        <tfoot>
+
+        </tfoot>
+    </table>
+</p>
+
+</div>
+
+
+<div class="container my-5">
+
+<h6>3. The 2013 Revenue element on the Employee records needs to be updated with the "revenue2013" list of data. Chelsea Chastain manages a team of employees - her 2013 Revenue number should be derived from the total revenue of all of the employees she manages. Store the resulting value in a new key on the employee object.</h6>
+<button class="btn btn-primary" onclick="document.getElementById('update2013Revenue').style.display = 'block'; update2013Revenue()">Calculate 2013 Revenue</button>
+
+
+<p id="update2013Revenue">
+    <table id="tblupdate2013Revenue" class="display" style="width:100%">
+        <thead>
+            <tr>
+                <th>Internal ID</th>
+                <th>Name</th>
+                <th>Supervisor</th>
+                <th>2012 Revenue</th>
+                <th>2013 Revenue</th>
+            </tr>
+        </thead>
+        <tfoot>
+
+        </tfoot>
+    </table>
+</p>
+
+</div>
+
+
+<div class="container my-5">
+    <h6>4. Calculate the Employee's commission based on the 2013 Revenue: the employee receives a percentage of the revenue they generated for the year as well as a bonus. The bonus is a flat-sum of money if they managed to generate more revenue than the previous year.</h6>
+    <button class="btn btn-primary" onclick="document.getElementById('Commission').style.display = 'block'; CalculateCommission()">Calculate Commission</button>
+   <p id="Commission">
+        <table id="tblCommission" class="display" style="width:100%">
+            <thead>
+                <tr>
+                    <th>Internal ID</th>
+                    <th>Name</th>
+                    <th>Supervisor</th>
+                    <th>2012 Revenue</th>
+                    <th>2013 Revenue</th>
+                    <th>Commission</th>
+                    <th>Bonus</th>
+                </tr>
+            </thead>
+            <tfoot>
+
+            </tfoot>
+        </table>
+    </p>
+
+    </div>
+
+
+
+<div class="container my-5">
+    <h6>5. Calculate the Revenue Increment or Decrement Percentage from 2012 to 2013.</h6>
+    <button class="btn btn-primary" onclick="document.getElementById('revenueChange').style.display = 'block'; RevenueChange()">Calculate Revenue Change</button>
+   <p id="revenueChange">
+        <table id="tblRevenueChange" class="display" style="width:100%">
+            <thead>
+                <tr>
+                    <th>Internal ID</th>
+                    <th>Name</th>
+                    <th>Supervisor</th>
+                    <th>2012 Revenue</th>
+                    <th>2013 Revenue</th>
+                    <th>Revenue Change(%)</th>
+
+                </tr>
+            </thead>
+            <tfoot>
+
+            </tfoot>
+        </table>
+    </p>
+
+    </div>
+
+
+<div class="container my-5">
+    <h6>5. Calculate the Employees Total Income from 2012 to 2013 including commission and bonus.</h6>
+    <button class="btn btn-primary" onclick="document.getElementById('totalIncome').style.display = 'block'; CalculatetotalIncome()">Calculate Total Income</button>
+   <p id="totalIncome">
+        <table id="tbltotalIncome" class="display" style="width:100%">
+            <thead>
+                <tr>
+                    <th>Internal ID</th>
+                    <th>Name</th>
+                    <th>Supervisor</th>
+                    <th>2012 Revenue</th>
+                    <th>2013 Revenue</th>
+                    <th>Commission</th>
+                    <th>Bonus</th>
+                    <th>Total Income</th>
+
+                </tr>
+            </thead>
+            <tfoot>
+
+            </tfoot>
+        </table>
+    </p>
+
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+        <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
+    <script src="js/app.js"></script>
+
+</body>
+</html>
